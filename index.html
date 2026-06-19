@@ -161,26 +161,31 @@
 
     .channels {
       position: relative;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 480px;
+      margin: 0 auto;
     }
     .ch-pill {
       display: flex;
       align-items: center;
-      gap: 7px;
-      background: #fff;
-      border: 1px solid rgba(26,158,117,.2);
+      justify-content: center;
+      gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--green);
       border-radius: 40px;
-      padding: 8px 18px;
+      padding: 10px 16px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--dark);
-      backdrop-filter: blur(6px);
-      transition: background .2s;
+      color: var(--green);
+      transition: background .2s, color .2s;
+      text-align: center;
     }
-    .ch-pill:hover { background: var(--card); }
+    .ch-pill:hover {
+      background: var(--green);
+      color: #fff;
+    }
     .ch-dot { width: 8px; height: 8px; border-radius: 50%; }
     .ch-dot.sms   { background: #1a9e75; }
     .ch-dot.email { background: #2176c7; }
@@ -317,6 +322,7 @@
     </div>
   </div>
 
+
   <section class="hero">
     <div class="pulse-wrap">
       <div class="ring"></div>
@@ -330,15 +336,19 @@
     <p class="hero-eyebrow">When something goes wrong —</p>
     <h1 class="hero-title">The Right People Get Notified.<br><span class="grad-word">From Alert to Resolution.</span></h1>
     <p class="hero-desc">
-      AlarmX detects incidents in real time, alerts the right people instantly,
-      and keeps everything under control — from alert to resolution.
+      Real-time detection. Instant alerts. Full control.
     </p>
     <p class="hero-sub">Transforming alerts into action.</p>
 
-    <div class="channels">
-      <div class="ch-pill"><span class="ch-dot sms"></span> SMS Gateway</div>
-      <div class="ch-pill"><span class="ch-dot email"></span> Email</div>
-      <div class="ch-pill"><span class="ch-dot push"></span> Push Notifications</div>
+    <div class="channels" id="channels-nav">
+      <div class="ch-pill" onclick="document.getElementById('card-sms').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-7 9H7V9h6v2zm4-4H7V5h10v2z"/></svg> SMS Gateway</div>
+      <div class="ch-pill" onclick="document.getElementById('card-modem').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-8 8H7v-2h4v2zm6 0h-2v-2h2v2zm0-4H7v-2h10v2zM8 5V3h2v2H8zm4 0V3h2v2h-2z"/></svg> USB Modem</div>
+      <div class="ch-pill" onclick="document.getElementById('card-email').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Email</div>
+      <div class="ch-pill" onclick="document.getElementById('card-push').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-3.5-9.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zM12 18c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z"/></svg> Push Notifications</div>
+      <div class="ch-pill" onclick="document.getElementById('card-groups').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Groups</div>
+      <div class="ch-pill" onclick="document.getElementById('card-schedules').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg> Schedules</div>
+      <div class="ch-pill" onclick="document.getElementById('card-airgap').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/><line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg> Air-Gap</div>
+      <div class="ch-pill" onclick="document.getElementById('card-security').scrollIntoView({behavior:'smooth',block:'center'})" style="cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> Security</div>
     </div>
 
     <div style="margin-top: 32px;">
@@ -372,7 +382,7 @@
 
     <div class="cards">
 
-      <div class="card">
+      <div class="card" id="card-sms">
         <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-7 9H7V9h6v2zm4-4H7V5h10v2z"/></svg>
         </div>
@@ -380,7 +390,7 @@
         <div class="card-body">Turn any Android smartphone (with an active SIM card) into a wireless SMS gateway. The phone connects over local Wi-Fi — ideal when you need mobility or a quick deployment without additional hardware.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-modem">
         <div class="card-icon">
           <!-- modem with antenna -->
           <svg viewBox="0 0 24 24"><path d="M19 7H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-8 8H7v-2h4v2zm6 0h-2v-2h2v2zm0-4H7v-2h10v2zM8 5V3h2v2H8zm4 0V3h2v2h-2z"/></svg>
@@ -389,7 +399,7 @@
         <div class="card-body">Plug a dedicated USB GSM modem (with SIM) directly into the server — no Wi-Fi, no middleman. Delivers the highest reliability for permanent installations. Primary and backup modems with automatic failover, built for air-gapped and mission-critical sites.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-email">
         <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
@@ -397,7 +407,7 @@
         <div class="card-body">Structured email alerts with custom templates, delivery confirmation, and SMTP configuration for any mail server — including internal enterprise servers.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-push">
         <div class="card-icon">
           <!-- mobile phone with signal/notification -->
           <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-3.5-9.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zM12 18c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z"/></svg>
@@ -406,7 +416,7 @@
         <div class="card-body">Real-time push alerts delivered to web and desktop clients. Configurable per group with custom schedules, priority levels, and acknowledgment tracking.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-groups">
         <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
         </div>
@@ -414,7 +424,7 @@
         <div class="card-body">Organize contacts into flexible groups. Assign channels per group, control active/inactive status, and manage shifts or escalation chains.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-schedules">
         <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
         </div>
@@ -422,7 +432,7 @@
         <div class="card-body">Define exactly when alerts are sent. Day/night windows, weekend rules, and per-recipient overrides ensure the right person is reached at the right time.</div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-airgap">
         <div class="card-icon">
           <!-- globe with X = no internet -->
           <svg viewBox="0 0 24 24" fill="white">
@@ -432,6 +442,14 @@
         </div>
         <div class="card-title">Air-Gap Ready</div>
         <div class="card-body">Fully operational with zero internet connectivity. Designed from day one for command-and-control environments, classified networks, and isolated infrastructure.</div>
+      </div>
+
+      <div class="card" id="card-security">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        </div>
+        <div class="card-title">Built-In Security</div>
+        <div class="card-body">JWT-based authentication, role-based access control, and fully local data storage — no information ever leaves your network. Designed from the ground up for classified and sensitive environments.</div>
       </div>
 
     </div>
@@ -512,6 +530,7 @@
   </div>
 
   <script>
+
     function submitContactForm(event) {
       const name    = document.getElementById('cf-name').value.trim();
       const company = document.getElementById('cf-company').value.trim();
@@ -571,6 +590,41 @@
     // close modal on backdrop click
     document.getElementById('contactModal').addEventListener('click', function(e) {
       if (e.target === this) this.style.display = 'none';
+    });
+  </script>
+
+
+  <!-- FLOATING BACK TO TOP -->
+  <button id="backToTop" onclick="document.getElementById('channels-nav').scrollIntoView({behavior:'smooth',block:'center'})" style="
+    display:none;
+    position:fixed;
+    bottom:28px;
+    right:24px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1a9e75,#2176c7);
+    border:none;
+    cursor:pointer;
+    box-shadow:0 4px 20px rgba(33,118,199,.35);
+    z-index:999;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .2s, transform .2s;
+  " title="Back to top">
+    <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
     });
   </script>
 
