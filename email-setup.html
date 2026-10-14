@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlarmX - Email Setup Guide for IT</title>
+  <meta name="description" content="What to ask your IT department in order to set up email notifications in AlarmX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #1a9e75;
+      --blue: #2176c7;
+      --grad: linear-gradient(135deg, #1a9e75, #2176c7);
+      --bg: #edf1f7;
+      --panel: #f4f7fa;
+      --card: #ffffff;
+      --dark: #1a2535;
+      --text: #3d4b5c;
+      --muted: #8fa3b8;
+      --border: #dde5ee;
+      --warn-bg: #fff6e5;
+      --warn-border: #f5d79e;
+      --warn-text: #8a5a00;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Assistant', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== Top bar ===== */
+    .topbar {
+      background: var(--dark);
+      padding: 18px 24px;
+    }
+    .topbar-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+    .logo-x {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9fb3c8;
+    }
+    .print-btn {
+      background: var(--grad);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 9px 18px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 8px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: #e8f7f2;
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .lead {
+      margin: 0;
+      font-size: 18px;
+      color: var(--text);
+      max-width: 680px;
+    }
+
+    /* ===== Content ===== */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 24px 48px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 18px;
+    }
+    .card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .badge {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--grad);
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    h3 {
+      margin: 18px 0 6px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+    code {
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1px 6px;
+      color: var(--dark);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-common { background: #e6f1fb; color: var(--blue); }
+    .tag-secure { background: #e8f7f2; color: var(--green); }
+
+    /* ===== Tables ===== */
+    .table-wrap { overflow-x: auto; margin: 4px 0 14px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      min-width: 520px;
+    }
+    th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--panel);
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eef2f6;
+      vertical-align: top;
+    }
+    td:first-child { font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .fill-table td:last-child {
+      width: 55%;
+      border-left: 1px solid #eef2f6;
+    }
+    .fill-table tr { height: 44px; }
+
+    .note {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: var(--warn-text);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 15px;
+      margin: 8px 0 4px;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .option-pill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 15px;
+    }
+    .option-pill strong { color: var(--dark); display: block; }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 0 24px 32px;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      .card { padding: 20px 18px; }
+      .options { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Print ===== */
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      .topbar { background: #fff; padding: 0 0 10px; border-bottom: 2px solid var(--dark); }
+      .logo-text { color: var(--dark); }
+      .tagline { color: var(--muted); }
+      .print-btn { display: none; }
+      .hero { padding-top: 16px; }
+      .card { border: 1px solid #ccc; break-inside: avoid; }
+      .eyebrow, .badge, .tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      footer { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <div class="logo-text">ALARM<span class="logo-x">X</span></div>
+        <div class="tagline">Every Second Matters</div>
+      </div>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Installation preparation</span>
+    <h1>Email Setup: What to Ask Your IT Department</h1>
+    <p class="lead">
+      AlarmX sends alerts by email through your own mail server. Please choose one of the two options
+      below and return the checklist at the end of this page before the installation date.
+    </p>
+  </section>
+
+  <main>
+
+    <!-- Why -->
+    <section class="card">
+      <div class="card-head">
+        <div class="badge">?</div>
+        <h2>Why AlarmX needs an email account</h2>
+      </div>
+      <p>AlarmX never uses a third-party or vendor mailbox. It uses one outgoing mailbox for:</p>
+      <ul>
+        <li>Alarm notifications to recipients who are set up to receive email</li>
+        <li>Password reset codes for AlarmX users</li>
+        <li>Notices to AlarmX administrators (for example, when the SMS modem is down)</li>
+      </ul>
+      <p>AlarmX only sends - it never reads the mailbox. Volume is low: typically a few messages a day, more only during an alarm event.</p>
+      <div class="options">
+        <div class="option-pill"><strong>Option A - Mailbox with password</strong>The most common setup</div>
+        <div class="option-pill"><strong>Option B - Internal relay, no password</strong>Best for closed networks</div>
+      </div>
+    </section>
+
+    <!-- Option A -->
+    <section class="card">
+      <div class="card-head">
+        <div class="badge">A</div>
+        <h2>A mailbox with a username and password <span class="tag tag-common">Most common</span></h2>
+      </div>
+      <p>Please create or assign a dedicated mailbox for AlarmX (for example <code>alarms@yourcompany.com</code>) and provide:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Example</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SMTP server</td><td>smtp.yourcompany.com</td><td>Host name or IP address</td></tr>
+            <tr><td>Port</td><td>587</td><td>587 for STARTTLS, 465 for SSL/TLS</td></tr>
+            <tr><td>Security</td><td>STARTTLS</td><td>STARTTLS, SSL/TLS, or none</td></tr>
+            <tr><td>Username</td><td>alarms@yourcompany.com</td><td>Usually the full email address</td></tr>
+            <tr><td>Password</td><td>-</td><td>Deliver securely, not by plain email</td></tr>
+            <tr><td>From address</td><td>alarms@yourcompany.com</td><td>Normally the same mailbox as the username</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Please also confirm</h3>
+      <ul>
+        <li>The mailbox is allowed to send through SMTP (client submission / SMTP AUTH)</li>
+        <li>The mailbox is excluded from multi-factor sign-in prompts, or an app password is provided instead</li>
+        <li>Outgoing connections from the AlarmX computer to the server and port above are allowed by the firewall</li>
+      </ul>
+      <p>The password is stored encrypted on the AlarmX computer and is never shown on screen.</p>
+    </section>
+
+    <!-- Option B -->
+    <section class="card">
+      <div class="card-head">
+        <div class="badge">B</div>
+        <h2>Internal mail relay, no password <span class="tag tag-secure">No stored password</span></h2>
+      </div>
+      <p>Best for closed or isolated networks, and when no password should be stored on the AlarmX computer. Your mail server accepts messages from the AlarmX computer based on its IP address.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Example</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Relay server</td><td>mail.yourcompany.local</td><td>Internal Exchange, Postfix, or a Microsoft 365 connector</td></tr>
+            <tr><td>Port</td><td>25</td><td>Usually 25</td></tr>
+            <tr><td>From address</td><td>alarms@yourcompany.com</td><td>Must be a sender your server accepts</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Please also</h3>
+      <ul>
+        <li>Allow relay from the AlarmX computer's IP address (we will send it to you)</li>
+        <li>Allow delivery to the recipients AlarmX will notify, including external addresses if needed</li>
+        <li>Make sure the AlarmX computer has a fixed IP address, so the relay rule keeps working</li>
+      </ul>
+    </section>
+
+    <!-- Providers -->
+    <section class="card">
+      <div class="card-head">
+        <div class="badge">i</div>
+        <h2>Microsoft 365 and Gmail</h2>
+      </div>
+      <h3>Microsoft 365 (Exchange Online)</h3>
+      <ul>
+        <li>Option A settings: server <code>smtp.office365.com</code>, port 587, STARTTLS</li>
+        <li>SMTP AUTH must be enabled for the AlarmX mailbox - it is often turned off by default</li>
+      </ul>
+      <div class="note">
+        Microsoft is phasing out password sign-in for SMTP. It is disabled by default for existing tenants from the end of
+        December 2026, and the final removal date will be announced in 2027. For a long-term setup, Option B through a
+        Microsoft 365 connector is recommended, since it does not depend on password sign-in.
+      </div>
+      <h3>Gmail / Google Workspace</h3>
+      <ul>
+        <li>Option A settings: server <code>smtp.gmail.com</code>, port 587, STARTTLS</li>
+        <li>The account needs 2-Step Verification turned on, and an <strong>App Password</strong> (16 letters) is used instead of the regular password</li>
+      </ul>
+    </section>
+
+    <!-- Checklist -->
+    <section class="card">
+      <div class="card-head">
+        <div class="badge">&#10003;</div>
+        <h2>Checklist to return</h2>
+      </div>
+      <p>Please fill in and return before the installation date. Send the password separately, by phone or another secure channel.</p>
+      <div class="table-wrap">
+        <table class="fill-table">
+          <thead>
+            <tr><th>Item</th><th>Your value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Option chosen (A or B)</td><td></td></tr>
+            <tr><td>SMTP / relay server</td><td></td></tr>
+            <tr><td>Port</td><td></td></tr>
+            <tr><td>Security (STARTTLS / SSL/TLS / none)</td><td></td></tr>
+            <tr><td>Username (Option A)</td><td></td></tr>
+            <tr><td>From address</td><td></td></tr>
+            <tr><td>A test address we can send to</td><td></td></tr>
+            <tr><td>IT contact name and phone</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>During installation we send a test email from AlarmX to confirm the setup works.</p>
+    </section>
+
+  </main>
+
+  <footer>AlarmX - Alarm and fault notification platform</footer>
+
+</body>
+</html>
